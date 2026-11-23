@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nicolas Rocha | Portfolio</title>
-  <meta name="description" content="Nicolas Rocha, UX designer. AI-forward product design for fast-paced products.">
+  <meta name="description" content="Nicolas Rocha, UX designer. AI-forward product design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -12,93 +12,112 @@
 </head>
 <body>
 
-  <header class="site-header container">
-    <a class="logo" href="index.html">Nicolas Rocha</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="blog.html">Blog</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="page">
 
-  <main>
+    <header class="site-header">
+      <a class="logo" href="index.html">Nicolas Rocha</a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <!-- Hero -->
-    <section class="hero container">
-      <p class="hero-emoji" aria-hidden="true">👋</p>
-      <h1 class="hero-name">Nicolas Rocha</h1>
-      <p class="hero-subtitle">Building @ ParlayPlay</p>
+    <main>
 
-      <h2 class="runner-headline" aria-label="AI-Forward Designer" data-runner-headline>
-        <span class="runner-row">
-          <span aria-hidden="true">
-            <span class="word"><span data-letter>A</span><span data-letter>I</span><span data-letter>-</span><span data-letter>F</span><span data-letter>o</span><span data-letter>r</span><span data-letter>w</span><span data-letter>a</span><span data-letter>r</span><span data-letter>d</span></span>
-            <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span><span data-letter>e</span><span data-letter>r</span></span>
+      <!-- Hero -->
+      <section class="hero">
+        <img class="profile" src="images/profile.png" alt="Portrait of Nicolas Rocha" width="60" height="100">
+
+        <div class="hero-meta">
+          <h1 class="hero-name">Nicolas Rocha</h1>
+          <p class="hero-subtitle">Building @ ParlayPlay</p>
+        </div>
+
+        <h2 class="runner-headline" aria-label="AI-Forward Designer" data-runner-headline>
+          <span class="runner-row">
+            <span aria-hidden="true">
+              <span class="word"><span data-letter>A</span><span data-letter>I</span><span data-letter>-</span><span data-letter>F</span><span data-letter>o</span><span data-letter>r</span><span data-letter>w</span><span data-letter>a</span><span data-letter>r</span><span data-letter>d</span></span>
+              <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span><span data-letter>e</span><span data-letter>r</span></span>
+            </span>
+            <img class="runner-sprite" src="images/runner.svg" alt="" aria-hidden="true" width="42" height="42">
           </span>
-          <img class="runner-sprite" src="images/runner.svg" alt="" aria-hidden="true" width="42" height="42">
-        </span>
-      </h2>
-      <div class="runner-landing-line" aria-hidden="true"></div>
+        </h2>
+        <div class="runner-landing-line" aria-hidden="true"></div>
 
-      <ol class="statements">
-        <li><span class="num">01</span> Empowering Fast-Paced Environments with Thoughtful Design.</li>
-        <li><span class="num">02</span> Experimenting with AI tools to rethink how products are designed and built.</li>
-        <li><span class="num">03</span> Working across startups and enterprise, with experience in AI, gaming, and consumer products.</li>
-      </ol>
-    </section>
+        <ol class="statements">
+          <!-- The Framer copy reads "Face Paced"; change to "Fast-Paced" if that was the intent. -->
+          <li><span class="num">01</span> Empowering Face Paced Environments with Thoughtful Design.</li>
+          <li><span class="num">02</span> Experimenting with AI tools to rethink how products are designed and built.</li>
+          <li><span class="num">03</span> Working across startups and enterprise, with experience in AI, gaming, and consumer products.</li>
+        </ol>
+      </section>
 
-    <!-- Cases -->
-    <section id="work" class="cases container">
-      <p class="label">Cases</p>
-      <div class="card-grid">
-        <a class="card" href="work/parlayplay.html">
-          <p class="card-tags">Full-time · Lead Designer</p>
-          <h3>ParlayPlay</h3>
-          <p class="card-tags">Leadership · Product Design · UX Design</p>
-          <span class="card-cta">View Full Case Study →</span>
-        </a>
-        <a class="card" href="#">
-          <!-- TODO: Amazon case study has no page yet. Add work/amazon.html and update this link. -->
-          <p class="card-tags">Amazon</p>
-          <h3>UX Design for Cybersecurity</h3>
-          <p class="card-tags">Wireframing · Prototyping · Hand-off</p>
-          <span class="card-cta">View Case →</span>
-        </a>
-        <a class="card" href="work/appco.html">
-          <p class="card-tags">Startup · AppCo</p>
-          <h3>POS System</h3>
-          <p class="card-tags">Leadership · Mobile · Desktop</p>
-          <span class="card-cta">View Case →</span>
-        </a>
-      </div>
-      <a class="button" href="work/index.html">View All Cases</a>
-    </section>
+      <!-- Cases -->
+      <section id="work" class="section">
+        <p class="label">[Cases]</p>
+        <div class="card-list">
+          <a class="card" href="work/parlayplay.html">
+            <div class="card-visual" aria-hidden="true">
+              <!-- TODO: add the ParlayPlay app screenshot as images/parlayplay.png and set it as this element's background. -->
+            </div>
+            <div class="card-text">
+              <p class="card-tags">Full-time · Lead Designer</p>
+              <h3>ParlayPlay</h3>
+              <p class="card-tags">Leadership · Product Design · UX Design</p>
+              <span class="card-cta">View Full Case Study →</span>
+            </div>
+          </a>
+          <a class="card" href="#">
+            <!-- TODO: Amazon case study has no page yet. Add work/amazon.html and update this link. -->
+            <div class="card-visual" aria-hidden="true"></div>
+            <div class="card-text">
+              <p class="card-tags">Amazon</p>
+              <h3>UX Design for Cybersecurity</h3>
+              <p class="card-tags">Wireframing · Prototyping · Hand-off</p>
+              <span class="card-cta">View Case →</span>
+            </div>
+          </a>
+          <a class="card" href="work/appco.html">
+            <div class="card-visual" aria-hidden="true"></div>
+            <div class="card-text">
+              <p class="card-tags">Startup · AppCo</p>
+              <h3>POS System</h3>
+              <p class="card-tags">Leadership · Mobile · Desktop</p>
+              <span class="card-cta">View Case →</span>
+            </div>
+          </a>
+        </div>
+        <a class="button" href="work/index.html">View All Cases</a>
+      </section>
 
-    <!-- About -->
-    <section id="about" class="about container">
-      <p class="label">About Me</p>
-      <!-- TODO: Add the five About Me photos to images/ and show them here. -->
-      <h2 class="about-name">Nicolas Rocha</h2>
-      <p class="about-subtitle">UX Designer @ Parlay Play</p>
-      <p>What began as an interest in traditional drawing and painting has become a strong passion for UX design. Through design thinking, I aim to make thoughtful solutions that elevate user experience.</p>
-      <p>When I'm not thinking about design, I like to spend time playing soccer, drawing cartoons, cooking, rock climbing, and making fine art.</p>
-      <a class="button" href="blog.html">More About Me</a>
-    </section>
+      <!-- About -->
+      <section id="about" class="section">
+        <p class="label">[About Me]</p>
+        <!-- TODO: Add the other About Me photos to images/ and show them here. -->
+        <h2 class="about-name">Nicolas Rocha</h2>
+        <p class="about-subtitle">UX Designer @ Parlay Play</p>
+        <p>What began as an interest in traditional drawing and painting has become a strong passion for UX design. Through design thinking, I aim to make thoughtful solutions that elevate user experience.</p>
+        <p>When I'm not thinking about design, I like to spend time playing soccer, drawing cartoons, cooking, rock climbing, and making fine art.</p>
+        <a class="button" href="blog.html">More About Me</a>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact container">
-      <h2>Yay! We've made it to the finish line. Say 👋 hi!</h2>
-      <a class="button" href="mailto:nicolasrocha6@gmail.com">nicolasrocha6@gmail.com · Let's Talk</a>
-      <p><a href="#">LinkedIn</a></p>
-      <!-- TODO: Replace # with your LinkedIn URL. -->
-    </section>
+      <!-- Contact -->
+      <section id="contact" class="section">
+        <p class="label">[Contact]</p>
+        <h2 class="contact-heading">Yay! We've made it to the finish line. Say 👋 hi!</h2>
+        <a class="button" href="mailto:nicolasrocha6@gmail.com">nicolasrocha6@gmail.com · Let's Talk</a>
+        <p><a class="inline-link" href="#">LinkedIn</a></p>
+        <!-- TODO: Replace # with your LinkedIn URL. -->
+      </section>
 
-  </main>
+    </main>
 
-  <footer class="site-footer container">
-    <p>© Nicolas Rocha</p>
-  </footer>
+    <footer class="site-footer">
+      <p>© Nicolas Rocha</p>
+    </footer>
+
+  </div>
 
   <script src="runner.js" defer></script>
 </body>
