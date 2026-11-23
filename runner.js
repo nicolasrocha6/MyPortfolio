@@ -13,7 +13,7 @@
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   function transform(x, y) {
-    return "translate(" + (x - 21) + "px," + (y - 14) + "px)";
+    return "translate(" + (x - 21) + "px," + (y - 21) + "px)";
   }
 
   function run() {

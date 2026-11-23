@@ -107,9 +107,9 @@ a {
   top: 0;
   left: 0;
   width: 42px;
+  height: 42px;
   visibility: hidden;
   pointer-events: none;
-  clip-path: polygon(24.6% 14.8%, 77.1% 14.8%, 77.1% 33.5%, 88.8% 33.5%, 88.8% 53.7%, 77.1% 53.7%, 77.1% 93.3%, 70% 93.3%, 70% 72%, 63.5% 72%, 63.5% 93.3%, 57% 93.3%, 57% 72%, 44% 72%, 44% 93.3%, 37.5% 93.3%, 37.5% 72%, 31% 72%, 31% 93.3%, 24.6% 93.3%, 24.6% 53.7%, 11.7% 53.7%, 11.7% 33.5%, 24.6% 33.5%);
 }
 
 /* The runner lands on this line. Keep it directly under the headline. */
