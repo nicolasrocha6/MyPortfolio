@@ -1,11 +1,34 @@
-/* Layout and colors matched to the Framer design (screenshot).
-   Text color, font, and the narrow content column come from the Framer page. */
+/* Layout, type and colors match the Figma frame "Portfolio — native editable layout"
+   (node 26:43). The frame is drawn at 2x, so every Figma value here is halved. */
 :root {
-  --text: #303832;
-  --muted: #7a7f7b;
+  --text: #313831;
+  --muted: #8f8f8f;
+  --subtle: #636e63;
   --bg: #ffffff;
-  --border: #e4e4e0;
-  --panel: #f2f1ed;
+  --border: #d9d9d1;
+  --panel: #f1f0ec;
+  --card: #fdfdfb;
+  --cell: #eceeeb;
+  --cell-on: #216e39;
+  --button-bg: #313831;
+  --button-text: #ffffff;
+  --icon-filter: none;
+}
+
+/* Dark theme, switched on by the moon button in the header */
+:root[data-theme="dark"] {
+  --text: #eceeeb;
+  --muted: #9a9f9a;
+  --subtle: #9a9f9a;
+  --bg: #121512;
+  --border: #2f342f;
+  --panel: #1d211d;
+  --card: #171a17;
+  --cell: #262b26;
+  --cell-on: #39d353;
+  --button-bg: #eceeeb;
+  --button-text: #121512;
+  --icon-filter: invert(1);
 }
 
 * {
@@ -13,21 +36,26 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
   color: var(--text);
   background: var(--bg);
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
   color: inherit;
 }
 
-/* Centered content column, about 794px wide like the Framer page */
+/* Centered content column, 800px wide like the Figma frame */
 .page {
-  max-width: 794px;
+  position: relative;
+  z-index: 1;
+  max-width: 832px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -37,71 +65,258 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  gap: 16px;
+  padding-top: 27px;
 }
 
 .logo {
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.site-header nav {
   display: flex;
-  gap: 20px;
-  font-size: 15px;
-}
-
-.site-header nav a {
+  align-items: center;
+  gap: 2px;
   text-decoration: none;
-  color: var(--muted);
 }
 
-.site-header nav a:hover {
-  color: var(--text);
+.logo img {
+  display: block;
+  width: 31px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.logo-text {
+  font-family: "Just Another Hand", cursive;
+  font-size: 20px;
+  line-height: 1;
+  color: #322f94;
+  padding-top: 3px;
+}
+
+:root[data-theme="dark"] .logo-text {
+  color: #a9a6ff;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.local-status {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 12.5px;
+  line-height: 18.9px;
+  letter-spacing: -0.175px;
+  color: var(--muted);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  margin-left: 15px;
+}
+
+.theme-toggle img,
+.header-icons img,
+.tool-logos img[alt="GitHub"] {
+  filter: var(--icon-filter);
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-left: 52px;
+}
+
+.header-icons a {
+  display: block;
+  line-height: 0;
+}
+
+.header-icons a:hover,
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+/* The Figma mail icon sits in a 23.5px box, a little below center */
+.mail-icon {
+  display: grid;
+  place-items: center;
+  width: 23.5px;
+  height: 23.5px;
+  padding-top: 1.5px;
+}
+
+.menu {
+  position: relative;
+  margin-left: 45px;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 38.5px;
+  padding: 0 24px 0 31.5px;
+  border: 0;
+  border-radius: 22.5px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 19.6px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  opacity: 0.85;
+}
+
+/* Two short bars, like the Figma "Menu top line" and "Menu bottom line" */
+.menu-lines {
+  position: relative;
+  width: 16px;
+  height: 7.5px;
+  border-top: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+}
+
+.menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.menu-panel[hidden] {
+  display: none;
+}
+
+.menu-panel a {
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.menu-panel a:hover {
+  background: var(--panel);
 }
 
 /* Hero */
 .hero {
-  padding-top: 120px;
+  position: relative;
+  padding-top: 132px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .profile {
   display: block;
-  width: 60px;
-  height: 100px;
-  border-radius: 30px;
+  flex-shrink: 0;
+  width: 61px;
+  height: 104px;
+  border-radius: 30.5px;
   object-fit: cover;
-  object-position: 50% 30%;
-  margin-bottom: 24px;
+}
+
+/* GitHub activity: a 16-week contribution grid, filled by header.js */
+.github-activity {
+  margin-top: 8px;
+}
+
+.github-link {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}
+
+.github-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 5.5px);
+  grid-auto-flow: column;
+  grid-auto-columns: 5.5px;
+  gap: 2px;
+  margin-top: 5px;
+  min-height: 50.5px;
+}
+
+.github-cell {
+  border-radius: 1px;
+  background: var(--cell);
+}
+
+.github-cell[data-level="1"] { background: color-mix(in srgb, var(--cell-on) 40%, var(--cell)); }
+.github-cell[data-level="2"] { background: color-mix(in srgb, var(--cell-on) 65%, var(--cell)); }
+.github-cell[data-level="3"] { background: color-mix(in srgb, var(--cell-on) 85%, var(--cell)); }
+.github-cell[data-level="4"] { background: var(--cell-on); }
+
+.github-caption {
+  margin: 5.5px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  line-height: 12px;
+  color: var(--subtle);
 }
 
 .hero-meta {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 16px;
+  align-items: center;
+  gap: 11px;
+  margin-top: 9.5px;
 }
 
 .hero-name {
-  font-size: 16px;
-  font-weight: 500;
   margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
 }
 
 .hero-subtitle {
   margin: 0;
+  font-size: 13.5px;
+  line-height: 18.9px;
   color: var(--muted);
 }
 
 /* Runner headline (ported from the Framer code component) */
 .runner-headline {
-  margin: 24px 0 0;
-  font-family: "DM Sans", sans-serif;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  margin: 9.5px 0 0;
+  font-family: "DM Serif Text", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38.4px;
   text-align: left;
   color: var(--text);
 }
@@ -123,38 +338,56 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 17.6px;
+  z-index: 2;
   visibility: hidden;
   pointer-events: none;
-}
-
-/* The runner lands on this line. Keep it directly under the headline. */
-.runner-landing-line {
-  height: 1px;
-  width: 100%;
-  background: currentColor;
-  opacity: 0.15;
-  margin-top: 8px;
 }
 
 /* Numbered statements */
 .statements {
   list-style: none;
   padding: 0;
-  margin: 32px 0 0;
-  max-width: 500px;
-  font-size: 16px;
+  margin: 12.5px 0 0;
+  /* Figma breaks lines 02 and 03 at about this width */
+  max-width: 475px;
+  font-size: 14px;
+  line-height: 21.75px;
 }
 
 .statements li {
-  margin-bottom: 12px;
+  margin-bottom: 11px;
 }
 
 .statements .num {
-  color: var(--muted);
   font-variant-numeric: tabular-nums;
-  margin-right: 8px;
+  margin-right: 7px;
+}
+
+/* Tool logos, stacked on the right of the hero */
+.tool-logos {
+  position: absolute;
+  top: calc(132px + 151.5px);
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11.2px;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-logos li {
+  line-height: 0;
+}
+
+.tool-logos img {
+  display: block;
+  width: 28px;
+  height: auto;
 }
 
 /* Sections */
@@ -162,12 +395,19 @@ a {
   padding-top: 110px;
 }
 
-.label {
-  font-size: 16px;
-  margin: 0 0 40px;
+#work {
+  padding-top: 100px;
 }
 
-/* Case cards: stacked, each a rounded frame with a panel inside */
+.label {
+  margin: 0 0 42.5px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 19.6px;
+  color: var(--text);
+}
+
+/* Case cards: an outer frame, a beige surface inside, and the project graphic */
 .card-list {
   display: flex;
   flex-direction: column;
@@ -176,35 +416,44 @@ a {
 }
 
 .card {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  padding: 20px;
+  display: block;
+  padding: 18.5px;
   border: 1px solid var(--border);
-  border-radius: 28px;
-  background: var(--bg);
+  border-radius: 24px;
+  background: var(--card);
   text-decoration: none;
 }
 
-.card-visual {
-  min-height: 360px;
+.card-surface {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 19px;
+  min-height: 247.5px;
+  padding: 18.5px;
+  border: 1px solid var(--border);
   border-radius: 20px;
-  background: linear-gradient(180deg, #bfe3f7 0%, #5fb6e4 100%);
+  background: var(--panel);
+}
+
+.card-visual {
+  min-height: 200px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #e8faff 0%, #85bdf7 100%);
 }
 
 .card:nth-child(n + 2) .card-visual {
-  background: var(--panel);
+  background: var(--card);
 }
 
 .card-text {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  padding: 8px 4px;
+  padding: 4px 0;
 }
 
 @media (min-width: 640px) {
-  .card {
+  .card-surface {
     grid-template-columns: 350px 1fr;
     align-items: stretch;
   }
@@ -233,8 +482,8 @@ a {
   display: inline-block;
   padding: 12px 22px;
   border-radius: 999px;
-  background: #303832;
-  color: #ffffff;
+  background: var(--button-bg);
+  color: var(--button-text);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -284,18 +533,78 @@ a {
   font-size: 14px;
 }
 
-/* Small screens */
-@media (max-width: 520px) {
-  .runner-headline {
-    font-size: 34px;
+/* Medium screens: drop the extras in the header and move the tool logos into a row */
+@media (max-width: 760px) {
+  .local-status,
+  .theme-toggle {
+    display: none;
   }
 
-  .site-header nav {
-    gap: 14px;
+  .header-icons {
+    margin-left: 0;
+  }
+
+  .menu {
+    margin-left: 24px;
+  }
+
+  .tool-logos {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    gap: 16px;
+    margin-top: 16px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+  .header-icons {
+    display: none;
+  }
+
+  .menu {
+    margin-left: 0;
   }
 
   .hero {
-    padding-top: 80px;
+    padding-top: 72px;
+  }
+
+  .hero .runner-headline {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+/* Load-in: text and pieces fade up one after another (delays set with --d in the HTML).
+   The tool stack stays hidden until runner.js raises it; if the script never runs,
+   it fades in after a few seconds anyway. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    animation: reveal-in 0.7s cubic-bezier(0.2, 0.7, 0.25, 1) backwards;
+    animation-delay: var(--d, 0ms);
+  }
+
+  @media (min-width: 761px) {
+    .tool-logos {
+      opacity: 0;
+      animation: tools-fallback 0.4s 7s forwards;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes tools-fallback {
+  to {
+    opacity: 1;
   }
 }
 
