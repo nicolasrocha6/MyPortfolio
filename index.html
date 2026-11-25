@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&family=Inter:wght@400;500&family=Just+Another+Hand&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 
@@ -96,43 +96,51 @@
       </section>
 
       <!-- Cases -->
-      <section id="work" class="section">
-        <p class="label" data-reveal style="--d:1450ms">[Cases]</p>
-        <div class="card-list" data-reveal style="--d:1550ms">
-          <a class="card" href="work/parlayplay.html">
-            <div class="card-surface">
-              <div class="card-visual" aria-hidden="true">
-                <!-- TODO: add the ParlayPlay app screenshot as images/parlayplay.png and set it as this element's background. -->
-              </div>
-              <div class="card-text">
-                <p class="card-tags">Full-time · Lead Designer</p>
-                <h3>ParlayPlay</h3>
-                <p class="card-tags">Leadership · Product Design · UX Design</p>
-                <span class="card-cta">View Full Case Study →</span>
-              </div>
+      <section id="work" class="section" aria-label="Case studies">
+        <div class="case-grid" data-reveal style="--d:1550ms">
+          <a class="case" href="work/parlayplay.html">
+            <div class="case-media">
+              <!-- TODO: replace with <video src="videos/parlayplay.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">ParlayPlay</h3>
+              <p class="case-desc">Spearheaded feature design that generates ~$500k monthly revenue.</p>
             </div>
           </a>
-          <a class="card" href="#">
-            <!-- TODO: Amazon case study has no page yet. Add work/amazon.html and update this link. -->
-            <div class="card-surface">
-              <div class="card-visual" aria-hidden="true"></div>
-              <div class="card-text">
-                <p class="card-tags">Amazon</p>
-                <h3>UX Design for Cybersecurity</h3>
-                <p class="card-tags">Wireframing · Prototyping · Hand-off</p>
-                <span class="card-cta">View Case →</span>
-              </div>
+          <a class="case" href="#">
+            <div class="case-media">
+              <video src="videos/amazon.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">Amazon</h3>
+              <p class="case-desc">Increased escalated critical issue visibility to L10 leaders through thoughtful design</p>
             </div>
           </a>
-          <a class="card" href="work/appco.html">
-            <div class="card-surface">
-              <div class="card-visual" aria-hidden="true"></div>
-              <div class="card-text">
-                <p class="card-tags">Startup · AppCo</p>
-                <h3>POS System</h3>
-                <p class="card-tags">Leadership · Mobile · Desktop</p>
-                <span class="card-cta">View Case →</span>
-              </div>
+          <a class="case" href="#">
+            <div class="case-media">
+              <!-- TODO: replace with <video src="videos/port.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">Port</h3>
+              <p class="case-desc">Simplifying Google Analytics Metrics for Creative Professionals</p>
+            </div>
+          </a>
+          <a class="case" href="work/appco.html">
+            <div class="case-media">
+              <!-- TODO: replace with <video src="videos/appco.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">AppCo</h3>
+              <p class="case-desc">Founding Designer for a Point-of-Sale Startup</p>
+            </div>
+          </a>
+          <a class="case" href="#">
+            <div class="case-media">
+              <!-- TODO: replace with <video src="videos/oliviahealth.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">OliviaHealth</h3>
+              <p class="case-desc">Spearheaded Design Across 2 Grant Funded Educational Products.</p>
             </div>
           </a>
         </div>

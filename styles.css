@@ -396,7 +396,7 @@ a {
 }
 
 #work {
-  padding-top: 100px;
+  padding-top: 72px;
 }
 
 .label {
@@ -407,74 +407,131 @@ a {
   color: var(--text);
 }
 
-/* Case cards: an outer frame, a beige surface inside, and the project graphic */
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-bottom: 40px;
+/* Case grid: wide video tiles with the name and summary over the bottom-left.
+   It breaks out of the 800px column to use the full window width. */
+body {
+  overflow-x: clip;
 }
 
-.card {
-  display: block;
-  padding: 18.5px;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  background: var(--card);
-  text-decoration: none;
-}
-
-.card-surface {
+.case-grid {
+  position: relative;
+  left: 50%;
+  width: min(1680px, 100vw - 32px);
+  transform: translateX(-50%);
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 19px;
-  min-height: 247.5px;
-  padding: 18.5px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--panel);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
 }
 
-.card-visual {
-  min-height: 200px;
-  border-radius: 16px;
-  background: linear-gradient(90deg, #e8faff 0%, #85bdf7 100%);
-}
-
-.card:nth-child(n + 2) .card-visual {
-  background: var(--card);
-}
-
-.card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 4px 0;
-}
-
-@media (min-width: 640px) {
-  .card-surface {
-    grid-template-columns: 350px 1fr;
-    align-items: stretch;
+/* The page-load reveal also uses transform, so keep the centering on a wrapper-free path */
+@media (prefers-reduced-motion: no-preference) {
+  .case-grid[data-reveal] {
+    animation-name: case-grid-in;
   }
 }
 
-.card-tags {
-  margin: 0;
-  font-size: 14px;
-  color: var(--muted);
+@keyframes case-grid-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    filter: blur(4px);
+  }
 }
 
-.card h3 {
-  margin: 4px 0 0;
+.case {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #d9d9d4 0%, #a9aaa4 100%);
+  isolation: isolate;
+}
+
+.case:nth-child(2) { background: linear-gradient(135deg, #eceae4 0%, #bdbcb5 100%); }
+.case:nth-child(3) { background: linear-gradient(135deg, #c9c9c5 0%, #8c8d88 100%); }
+.case:nth-child(4) { background: linear-gradient(135deg, #2c3138 0%, #11151a 100%); }
+.case:nth-child(5) { background: linear-gradient(135deg, #2a2a2a 0%, #0c0c0c 100%); }
+
+.case-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.case-media video,
+.case-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.case:hover .case-media video,
+.case:hover .case-media img {
+  transform: scale(1.03);
+}
+
+/* A soft dark fade behind the text so it reads on any video */
+.case::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+
+.case-caption {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  bottom: 22px;
+}
+
+.case-title {
+  margin: 0;
   font-size: 22px;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-.card-cta {
-  margin-top: auto;
-  font-weight: 500;
+.case-desc {
+  margin: 4px 0 0;
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 1100px) {
+  .case-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .case-caption {
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+  }
+
+  .case-title {
+    font-size: 18px;
+  }
+
+  .case-desc {
+    font-size: 14px;
+  }
 }
 
 /* Pill button */
