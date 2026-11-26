@@ -127,35 +127,12 @@ a {
 }
 
 .theme-toggle img,
-.header-icons img,
 .tool-logos img[alt="GitHub"] {
   filter: var(--icon-filter);
 }
 
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-left: 52px;
-}
-
-.header-icons a {
-  display: block;
-  line-height: 0;
-}
-
-.header-icons a:hover,
 .theme-toggle:hover {
   opacity: 0.7;
-}
-
-/* The Figma mail icon sits in a 23.5px box, a little below center */
-.mail-icon {
-  display: grid;
-  place-items: center;
-  width: 23.5px;
-  height: 23.5px;
-  padding-top: 1.5px;
 }
 
 .menu {
@@ -360,9 +337,54 @@ a {
   margin-bottom: 11px;
 }
 
+.statements li:last-child {
+  margin-bottom: 0;
+}
+
 .statements .num {
   font-variant-numeric: tabular-nums;
   margin-right: 7px;
+}
+
+/* Simple text links under the statements: profiles on the left, resume on the right */
+.hero-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  max-width: 475px;
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 19.6px;
+}
+
+.hero-links-main {
+  display: flex;
+  align-items: center;
+}
+
+.hero-links a {
+  text-decoration: none;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Thin divider between the profile links */
+.hero-links-main a + a::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 14px;
+  vertical-align: -1px;
+  background: var(--border);
+}
+
+.hero-links-main a + a:hover::before {
+  text-decoration: none;
 }
 
 /* Tool logos, stacked on the right of the hero */
@@ -442,7 +464,7 @@ body {
 .case {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 14px;
   color: #fff;
@@ -479,7 +501,7 @@ body {
 .case::after {
   content: "";
   position: absolute;
-  inset: 45% 0 0;
+  inset: 60% 0 0;
   z-index: -1;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
   pointer-events: none;
@@ -487,24 +509,26 @@ body {
 
 .case-caption {
   position: absolute;
-  left: 26px;
-  right: 26px;
-  bottom: 22px;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  font-family: "DM Sans", sans-serif;
 }
 
 .case-title {
   margin: 0;
-  font-size: 22px;
+  font-family: inherit;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
 }
 
 .case-desc {
-  margin: 4px 0 0;
-  font-size: 17px;
-  line-height: 1.35;
-  color: rgba(255, 255, 255, 0.88);
+  margin: 2px 0 0;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 1100px) {
@@ -520,17 +544,9 @@ body {
   }
 
   .case-caption {
-    left: 18px;
-    right: 18px;
-    bottom: 16px;
-  }
-
-  .case-title {
-    font-size: 18px;
-  }
-
-  .case-desc {
-    font-size: 14px;
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
   }
 }
 
@@ -597,12 +613,8 @@ body {
     display: none;
   }
 
-  .header-icons {
-    margin-left: 0;
-  }
-
   .menu {
-    margin-left: 24px;
+    margin-left: 0;
   }
 
   .tool-logos {
@@ -616,14 +628,6 @@ body {
 
 /* Small screens */
 @media (max-width: 520px) {
-  .header-icons {
-    display: none;
-  }
-
-  .menu {
-    margin-left: 0;
-  }
-
   .hero {
     padding-top: 72px;
   }

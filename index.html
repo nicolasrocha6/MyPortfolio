@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&family=Inter:wght@400;500&family=Just+Another+Hand&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
@@ -28,14 +28,6 @@
         <button data-reveal style="--d:100ms" class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" data-theme-toggle>
           <img src="images/icons/moon.svg" alt="" width="15" height="15">
         </button>
-
-        <div class="header-icons">
-          <!-- TODO: Replace # with your LinkedIn URL. -->
-          <a data-reveal style="--d:140ms" href="#" aria-label="LinkedIn"><img src="images/icons/linkedin.svg" alt="" width="21.5" height="21.5"></a>
-          <a data-reveal style="--d:180ms" href="mailto:nicolasrocha6@gmail.com" aria-label="Email"><span class="mail-icon"><img src="images/icons/mail.svg" alt="" width="20" height="15.5"></span></a>
-          <!-- TODO: Replace # with your booking link (Calendly, Cal.com, etc.). -->
-          <a data-reveal style="--d:220ms" href="#" aria-label="Book a call"><img src="images/icons/calendar.svg" alt="" width="21.5" height="21.5"></a>
-        </div>
 
         <div class="menu" data-reveal style="--d:260ms">
           <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-button>
@@ -86,6 +78,19 @@
           <li data-reveal style="--d:1300ms"><span class="num">03</span>I’ve worked across startups and enterprise, with experience in AI, gaming, and consumer products.</li>
         </ol>
 
+        <nav class="hero-links" aria-label="Contact and profiles" data-reveal style="--d:1400ms">
+          <div class="hero-links-main">
+            <a href="mailto:nicolasrocha6@gmail.com">Email</a>
+            <!-- TODO: Replace # with your LinkedIn URL. -->
+            <a href="#">LinkedIn</a>
+            <!-- TODO: Replace # with your X profile URL. -->
+            <a href="#">X</a>
+            <a href="https://github.com/nicolasrocha6" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <!-- TODO: Replace # with a link to your resume PDF. -->
+          <a href="#">Resume</a>
+        </nav>
+
         <ul class="tool-logos" aria-label="Tools I use">
           <li data-stack-top><img src="images/icons/claude-code.svg" alt="Claude Code" width="28" height="17.6"></li>
           <li><img src="images/icons/figma.svg" alt="Figma" width="28" height="28"></li>
@@ -118,7 +123,7 @@
           </a>
           <a class="case" href="#">
             <div class="case-media">
-              <!-- TODO: replace with <video src="videos/port.mp4" autoplay muted loop playsinline></video> -->
+              <video src="videos/port.mp4?v=3" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
             </div>
             <div class="case-caption">
               <h3 class="case-title">Port</h3>
@@ -127,7 +132,7 @@
           </a>
           <a class="case" href="work/appco.html">
             <div class="case-media">
-              <!-- TODO: replace with <video src="videos/appco.mp4" autoplay muted loop playsinline></video> -->
+              <video src="videos/appco.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
             </div>
             <div class="case-caption">
               <h3 class="case-title">AppCo</h3>
