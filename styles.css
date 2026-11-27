@@ -91,19 +91,6 @@ a {
   align-items: center;
 }
 
-.local-status {
-  display: flex;
-  gap: 6px;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 12.5px;
-  line-height: 18.9px;
-  letter-spacing: -0.175px;
-  color: var(--muted);
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
 .icon-button {
   display: grid;
   place-items: center;
@@ -314,12 +301,11 @@ a {
   pointer-events: none;
 }
 
-/* Numbered statements */
+/* Hero statements */
 .statements {
   list-style: none;
   padding: 0;
   margin: 12.5px 0 0;
-  /* Figma breaks lines 02 and 03 at about this width */
   max-width: 475px;
   font-size: 14px;
   line-height: 21.75px;
@@ -331,11 +317,6 @@ a {
 
 .statements li:last-child {
   margin-bottom: 0;
-}
-
-.statements .num {
-  font-variant-numeric: tabular-nums;
-  margin-right: 7px;
 }
 
 /* Simple text links under the statements: profiles on the left, resume on the right */
@@ -411,14 +392,6 @@ a {
 
 #work {
   padding-top: 72px;
-}
-
-.label {
-  margin: 0 0 42.5px;
-  font-family: "Inter", sans-serif;
-  font-size: 14px;
-  line-height: 19.6px;
-  color: var(--text);
 }
 
 /* Case grid: wide video tiles with the name and summary over the bottom-left.
@@ -506,6 +479,63 @@ body {
   object-fit: contain;
 }
 
+/* Featured tile: spans two columns. The video sits whole in the middle, its edges
+   fade out, and the tile behind it is painted in the video's own sky colors. */
+.case--featured {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Sky colors sampled from the ParlayPlay recording's left and right edges */
+.case.case--featured {
+  background:
+    linear-gradient(to right, rgba(139, 201, 252, 0) 45%, #8bc9fc 60%),
+    linear-gradient(to bottom, #eef9fb, #c3e5fd 50%, #64b6fc);
+}
+
+.case--featured .case-media .case-main {
+  position: relative;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+}
+
+.case--featured::after {
+  inset: 50% 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+}
+
+.case--featured .case-caption {
+  left: 24px;
+  bottom: 22px;
+}
+
+.case-tag {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.case--featured .case-title {
+  font-size: 22px;
+}
+
+.case--featured .case-desc {
+  font-size: 15px;
+}
+
+.case-desc strong {
+  font-weight: 500;
+  color: #fff;
+}
+
 /* A soft dark fade behind the text so it reads on any video */
 .case::after {
   content: "";
@@ -544,6 +574,10 @@ body {
   .case-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .case--featured {
+    aspect-ratio: 2 / 1;
+  }
 }
 
 @media (max-width: 640px) {
@@ -552,58 +586,34 @@ body {
     gap: 12px;
   }
 
+  .case--featured {
+    grid-column: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .case--featured .case-caption {
+    left: 16px;
+    bottom: 14px;
+  }
+
+  .case--featured::after {
+    inset: 35% 0 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  }
+
+  .case--featured .case-title {
+    font-size: 18px;
+  }
+
+  .case--featured .case-desc {
+    font-size: 14px;
+  }
+
   .case-caption {
     left: 16px;
     right: 16px;
     bottom: 14px;
   }
-}
-
-/* Pill button */
-.button {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: var(--button-bg);
-  color: var(--button-text);
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.button:hover {
-  opacity: 0.85;
-}
-
-/* About */
-.about-name,
-.contact-heading {
-  font-size: 32px;
-  font-weight: 500;
-  margin: 0 0 8px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.about-subtitle {
-  color: var(--muted);
-  margin: 0 0 24px;
-}
-
-.section p {
-  max-width: 560px;
-}
-
-.section .button {
-  margin-top: 16px;
-}
-
-.contact-heading {
-  margin-bottom: 24px;
-}
-
-.inline-link {
-  color: var(--muted);
 }
 
 /* Footer */
@@ -617,7 +627,6 @@ body {
 
 /* Medium screens: drop the extras in the header and move the tool logos into a row */
 @media (max-width: 760px) {
-  .local-status,
   .theme-toggle {
     display: none;
   }

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=29">
 </head>
 <body>
 
@@ -20,10 +20,6 @@
       </a>
 
       <div class="header-right">
-        <p class="local-status" data-local-status data-reveal style="--d:60ms">
-          <span>[Dallas <span data-clock>--:--:-- --</span>]</span>
-          <span data-weather></span>
-        </p>
         <button data-reveal style="--d:100ms" class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" data-theme-toggle>
           <img src="images/icons/moon.svg" alt="" width="15" height="15">
         </button>
@@ -34,9 +30,7 @@
           </button>
           <nav class="menu-panel" id="site-menu" hidden>
             <a href="#work">Work</a>
-            <a href="#about">About</a>
             <a href="blog.html">Blog</a>
-            <a href="#contact">Contact</a>
           </nav>
         </div>
       </div>
@@ -74,11 +68,11 @@
           </span>
         </h2>
 
-        <ol class="statements">
-          <li data-reveal style="--d:1100ms"><span class="num">01</span>I simplify complex problems and design solutions that scale.</li>
-          <li data-reveal style="--d:1200ms"><span class="num">02</span>I experiment with AI tools to rethink how products are designed and built.</li>
-          <li data-reveal style="--d:1300ms"><span class="num">03</span>I’ve worked across startups and enterprise, with experience in AI, gaming, and consumer products.</li>
-        </ol>
+        <ul class="statements">
+          <li data-reveal style="--d:1100ms">I lead design at ParlayPlay. One feature I designed generates ~$500k in monthly revenue.</li>
+          <li data-reveal style="--d:1200ms">Before that: critical-issue visibility for Amazon leaders, the first designs at a point-of-sale startup, and two grant-funded education products.</li>
+          <li data-reveal style="--d:1300ms">I prototype in code with AI tools, this site included.</li>
+        </ul>
 
         <nav class="hero-links" aria-label="Contact and profiles" data-reveal style="--d:1400ms">
           <div class="hero-links-main">
@@ -105,13 +99,14 @@
       <!-- Cases -->
       <section id="work" class="section" aria-label="Case studies">
         <div class="case-grid" data-reveal style="--d:1550ms">
-          <a class="case" href="work/parlayplay.html">
+          <a class="case case--featured" href="work/parlayplay.html">
             <div class="case-media">
-              <video src="videos/parlayplay.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+              <video class="case-main" src="videos/parlayplay.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
             </div>
             <div class="case-caption">
+              <p class="case-tag">Current</p>
               <h3 class="case-title">ParlayPlay</h3>
-              <p class="case-desc">Spearheaded feature design that generates ~$500k monthly revenue.</p>
+              <p class="case-desc">Spearheaded feature design that generates <strong>~$500k monthly revenue.</strong></p>
             </div>
           </a>
           <a class="case case--inset" style="--case-bg: #000" href="#">
@@ -151,27 +146,6 @@
             </div>
           </a>
         </div>
-        <a class="button" href="work/index.html">View All Cases</a>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section">
-        <p class="label">[About Me]</p>
-        <!-- TODO: Add the other About Me photos to images/ and show them here. -->
-        <h2 class="about-name">Nicolas Rocha</h2>
-        <p class="about-subtitle">UX Designer @ Parlay Play</p>
-        <p>What began as an interest in traditional drawing and painting has become a strong passion for UX design. Through design thinking, I aim to make thoughtful solutions that elevate user experience.</p>
-        <p>When I'm not thinking about design, I like to spend time playing soccer, drawing cartoons, cooking, rock climbing, and making fine art.</p>
-        <a class="button" href="blog.html">More About Me</a>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <p class="label">[Contact]</p>
-        <h2 class="contact-heading">Yay! We've made it to the finish line. Say 👋 hi!</h2>
-        <a class="button" href="mailto:nicolasrocha6@gmail.com">nicolasrocha6@gmail.com · Let's Talk</a>
-        <p><a class="inline-link" href="#">LinkedIn</a></p>
-        <!-- TODO: Replace # with your LinkedIn URL. -->
       </section>
 
     </main>
@@ -183,7 +157,7 @@
   </div>
 
   <script src="runner.js?v=8" defer></script>
-  <script src="header.js?v=7" defer></script>
+  <script src="header.js?v=8" defer></script>
   <script src="cases.js?v=6" defer></script>
 </body>
 </html>
