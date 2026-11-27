@@ -7,8 +7,8 @@
   <meta name="description" content="Nicolas Rocha, UX designer. AI-forward product design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Text&family=Inter:wght@400;500&family=Just+Another+Hand&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=22">
 </head>
 <body>
 
@@ -16,8 +16,7 @@
 
     <header class="site-header">
       <a class="logo" data-reveal style="--d:0ms" href="index.html" aria-label="Nicolas Rocha, home">
-        <img src="images/logo.png" alt="" width="31" height="32">
-        <span class="logo-text">Nico</span>
+        <img src="images/cbi_chicken.png" alt="" width="29" height="29">
       </a>
 
       <div class="header-right">
@@ -62,11 +61,14 @@
           <p class="hero-subtitle">Building @ParlayPlay</p>
         </div>
 
-        <h2 class="runner-headline" aria-label="AI–Forward Designer" data-runner-headline>
+        <h2 class="runner-headline" aria-label="High Paced Design + Engineering" data-runner-headline>
           <span class="runner-row">
             <span aria-hidden="true">
-              <span class="word"><span data-letter>A</span><span data-letter>I</span><span data-letter>–</span><span data-letter>F</span><span data-letter>o</span><span data-letter>r</span><span data-letter>w</span><span data-letter>a</span><span data-letter>r</span><span data-letter>d</span></span>
-              <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span><span data-letter>e</span><span data-letter>r</span></span>
+              <span class="word"><span data-letter>H</span><span data-letter>i</span><span data-letter>g</span><span data-letter>h</span></span>
+              <span class="word"><span data-letter>P</span><span data-letter>a</span><span data-letter>c</span><span data-letter>e</span><span data-letter>d</span></span>
+              <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span></span>
+              <span class="word"><span data-letter>+</span></span>
+              <span class="word"><span data-letter>E</span><span data-letter>n</span><span data-letter>g</span><span data-letter>i</span><span data-letter>n</span><span data-letter>e</span><span data-letter>e</span><span data-letter>r</span><span data-letter>i</span><span data-letter>n</span><span data-letter>g</span></span>
             </span>
             <img class="runner-sprite" src="images/icons/claude-code.svg" alt="" aria-hidden="true" width="28" height="17.6">
           </span>
@@ -105,16 +107,16 @@
         <div class="case-grid" data-reveal style="--d:1550ms">
           <a class="case" href="work/parlayplay.html">
             <div class="case-media">
-              <!-- TODO: replace with <video src="videos/parlayplay.mp4" autoplay muted loop playsinline></video> -->
+              <video src="videos/parlayplay.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
             </div>
             <div class="case-caption">
               <h3 class="case-title">ParlayPlay</h3>
               <p class="case-desc">Spearheaded feature design that generates ~$500k monthly revenue.</p>
             </div>
           </a>
-          <a class="case" href="#">
+          <a class="case case--inset" style="--case-bg: #000" href="#">
             <div class="case-media">
-              <video src="videos/amazon.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+              <video src="videos/amazon.mp4?v=2" muted loop playsinline preload="auto" aria-hidden="true" data-play-times="2"></video>
             </div>
             <div class="case-caption">
               <h3 class="case-title">Amazon</h3>
@@ -180,7 +182,8 @@
 
   </div>
 
-  <script src="runner.js?v=7" defer></script>
+  <script src="runner.js?v=8" defer></script>
   <script src="header.js?v=7" defer></script>
+  <script src="cases.js?v=6" defer></script>
 </body>
 </html>

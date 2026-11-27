@@ -70,29 +70,20 @@ a {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  text-decoration: none;
+  display: block;
+  line-height: 0;
 }
 
+/* The chicken is a dark silhouette, so it flips to light in dark mode */
 .logo img {
   display: block;
-  width: 31px;
-  height: 32px;
-  border-radius: 6px;
+  width: 29px;
+  height: 29px;
+  filter: var(--icon-filter);
 }
 
-.logo-text {
-  font-family: "Just Another Hand", cursive;
-  font-size: 20px;
-  line-height: 1;
-  color: #322f94;
-  padding-top: 3px;
-}
-
-:root[data-theme="dark"] .logo-text {
-  color: #a9a6ff;
+.logo:hover img {
+  opacity: 0.7;
 }
 
 .header-right {
@@ -290,7 +281,8 @@ a {
 /* Runner headline (ported from the Framer code component) */
 .runner-headline {
   margin: 9.5px 0 0;
-  font-family: "DM Serif Text", serif;
+  font-family: "DM Sans", sans-serif;
+  letter-spacing: -0.02em;
   font-size: 32px;
   font-weight: 400;
   line-height: 38.4px;
@@ -495,6 +487,23 @@ body {
 .case:hover .case-media video,
 .case:hover .case-media img {
   transform: scale(1.03);
+}
+
+/* Inset tiles: the video sits smaller in the middle, on a background that matches
+   the video's own, so its edges disappear. Set the color with --case-bg. */
+.case.case--inset {
+  background: var(--case-bg, #000);
+}
+
+.case--inset .case-media {
+  display: grid;
+  place-items: center;
+}
+
+.case--inset .case-media video {
+  width: 62%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* A soft dark fade behind the text so it reads on any video */
