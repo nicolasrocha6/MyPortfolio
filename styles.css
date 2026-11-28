@@ -1,11 +1,34 @@
-/* Layout and colors matched to the Framer design (screenshot).
-   Text color, font, and the narrow content column come from the Framer page. */
+/* Layout, type and colors match the Figma frame "Portfolio — native editable layout"
+   (node 26:43). The frame is drawn at 2x, so every Figma value here is halved. */
 :root {
-  --text: #303832;
-  --muted: #7a7f7b;
+  --text: #313831;
+  --muted: #8f8f8f;
+  --subtle: #636e63;
   --bg: #ffffff;
-  --border: #e4e4e0;
-  --panel: #f2f1ed;
+  --border: #d9d9d1;
+  --panel: #f1f0ec;
+  --card: #fdfdfb;
+  --cell: #eceeeb;
+  --cell-on: #216e39;
+  --button-bg: #313831;
+  --button-text: #ffffff;
+  --icon-filter: none;
+}
+
+/* Dark theme, switched on by the moon button in the header */
+:root[data-theme="dark"] {
+  --text: #eceeeb;
+  --muted: #9a9f9a;
+  --subtle: #9a9f9a;
+  --bg: #121512;
+  --border: #2f342f;
+  --panel: #1d211d;
+  --card: #171a17;
+  --cell: #262b26;
+  --cell-on: #39d353;
+  --button-bg: #eceeeb;
+  --button-text: #121512;
+  --icon-filter: invert(1);
 }
 
 * {
@@ -13,21 +36,26 @@
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
   color: var(--text);
   background: var(--bg);
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
   color: inherit;
 }
 
-/* Centered content column, about 794px wide like the Framer page */
+/* Centered content column, 800px wide like the Figma frame */
 .page {
-  max-width: 794px;
+  position: relative;
+  z-index: 1;
+  max-width: 832px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -37,71 +65,214 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  gap: 16px;
+  padding-top: 27px;
 }
 
 .logo {
-  font-size: 16px;
-  font-weight: 500;
-  text-decoration: none;
+  display: block;
+  line-height: 0;
 }
 
-.site-header nav {
+/* The chicken is a dark silhouette, so it flips to light in dark mode */
+.logo img {
+  display: block;
+  width: 29px;
+  height: 29px;
+  filter: var(--icon-filter);
+}
+
+.logo:hover img {
+  opacity: 0.7;
+}
+
+.header-right {
   display: flex;
-  gap: 20px;
-  font-size: 15px;
+  align-items: center;
 }
 
-.site-header nav a {
+.icon-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.theme-toggle {
+  margin-left: 15px;
+}
+
+.theme-toggle img,
+.tool-logos img[alt="GitHub"] {
+  filter: var(--icon-filter);
+}
+
+.theme-toggle:hover {
+  opacity: 0.7;
+}
+
+.menu {
+  position: relative;
+  margin-left: 45px;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  height: 38.5px;
+  padding: 0 24px 0 31.5px;
+  border: 0;
+  border-radius: 22.5px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 19.6px;
+  cursor: pointer;
+}
+
+.menu-button:hover {
+  opacity: 0.85;
+}
+
+/* Two short bars, like the Figma "Menu top line" and "Menu bottom line" */
+.menu-lines {
+  position: relative;
+  width: 16px;
+  height: 7.5px;
+  border-top: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+}
+
+.menu-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.menu-panel[hidden] {
+  display: none;
+}
+
+.menu-panel a {
+  padding: 8px 12px;
+  border-radius: 10px;
   text-decoration: none;
-  color: var(--muted);
+  font-size: 14px;
 }
 
-.site-header nav a:hover {
-  color: var(--text);
+.menu-panel a:hover {
+  background: var(--panel);
 }
 
 /* Hero */
 .hero {
-  padding-top: 120px;
+  position: relative;
+  padding-top: 132px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .profile {
   display: block;
-  width: 60px;
-  height: 100px;
-  border-radius: 30px;
+  flex-shrink: 0;
+  width: 61px;
+  height: 104px;
+  border-radius: 30.5px;
   object-fit: cover;
-  object-position: 50% 30%;
-  margin-bottom: 24px;
+}
+
+/* GitHub activity: a 16-week contribution grid, filled by header.js */
+.github-activity {
+  margin-top: 8px;
+}
+
+.github-link {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+.github-link:hover {
+  text-decoration: underline;
+}
+
+.github-grid {
+  display: grid;
+  grid-template-rows: repeat(7, 5.5px);
+  grid-auto-flow: column;
+  grid-auto-columns: 5.5px;
+  gap: 2px;
+  margin-top: 5px;
+  min-height: 50.5px;
+}
+
+.github-cell {
+  border-radius: 1px;
+  background: var(--cell);
+}
+
+.github-cell[data-level="1"] { background: color-mix(in srgb, var(--cell-on) 40%, var(--cell)); }
+.github-cell[data-level="2"] { background: color-mix(in srgb, var(--cell-on) 65%, var(--cell)); }
+.github-cell[data-level="3"] { background: color-mix(in srgb, var(--cell-on) 85%, var(--cell)); }
+.github-cell[data-level="4"] { background: var(--cell-on); }
+
+.github-caption {
+  margin: 5.5px 0 0;
+  font-family: "Inter", sans-serif;
+  font-size: 9px;
+  line-height: 12px;
+  color: var(--subtle);
 }
 
 .hero-meta {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-size: 16px;
+  align-items: center;
+  gap: 11px;
+  margin-top: 9.5px;
 }
 
 .hero-name {
-  font-size: 16px;
-  font-weight: 500;
   margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
 }
 
 .hero-subtitle {
   margin: 0;
+  font-size: 13.5px;
+  line-height: 18.9px;
   color: var(--muted);
 }
 
 /* Runner headline (ported from the Framer code component) */
 .runner-headline {
-  margin: 24px 0 0;
+  margin: 9.5px 0 0;
   font-family: "DM Sans", sans-serif;
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 38.4px;
   text-align: left;
   color: var(--text);
 }
@@ -123,38 +294,95 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  width: 42px;
-  height: 42px;
+  width: 28px;
+  height: 17.6px;
+  z-index: 2;
   visibility: hidden;
   pointer-events: none;
 }
 
-/* The runner lands on this line. Keep it directly under the headline. */
-.runner-landing-line {
-  height: 1px;
-  width: 100%;
-  background: currentColor;
-  opacity: 0.15;
-  margin-top: 8px;
-}
-
-/* Numbered statements */
+/* Hero statements */
 .statements {
   list-style: none;
   padding: 0;
-  margin: 32px 0 0;
-  max-width: 500px;
-  font-size: 16px;
+  margin: 12.5px 0 0;
+  max-width: 475px;
+  font-size: 14px;
+  line-height: 21.75px;
 }
 
 .statements li {
-  margin-bottom: 12px;
+  margin-bottom: 11px;
 }
 
-.statements .num {
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-  margin-right: 8px;
+.statements li:last-child {
+  margin-bottom: 0;
+}
+
+/* Simple text links under the statements: profiles on the left, resume on the right */
+.hero-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  max-width: 475px;
+  margin-top: 24px;
+  font-size: 14px;
+  line-height: 19.6px;
+}
+
+.hero-links-main {
+  display: flex;
+  align-items: center;
+}
+
+.hero-links a {
+  text-decoration: none;
+}
+
+.hero-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Thin divider between the profile links */
+.hero-links-main a + a::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 14px;
+  vertical-align: -1px;
+  background: var(--border);
+}
+
+.hero-links-main a + a:hover::before {
+  text-decoration: none;
+}
+
+/* Tool logos, stacked on the right of the hero */
+.tool-logos {
+  position: absolute;
+  top: calc(132px + 151.5px);
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11.2px;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool-logos li {
+  line-height: 0;
+}
+
+.tool-logos img {
+  display: block;
+  width: 28px;
+  height: auto;
 }
 
 /* Sections */
@@ -162,117 +390,230 @@ a {
   padding-top: 110px;
 }
 
-.label {
-  font-size: 16px;
-  margin: 0 0 40px;
+#work {
+  padding-top: 72px;
 }
 
-/* Case cards: stacked, each a rounded frame with a panel inside */
-.card-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-bottom: 40px;
+/* Case grid: wide video tiles with the name and summary over the bottom-left.
+   It breaks out of the 800px column to use the full window width. */
+body {
+  overflow-x: clip;
 }
 
-.card {
+.case-grid {
+  position: relative;
+  left: 50%;
+  width: min(1680px, 100vw - 32px);
+  transform: translateX(-50%);
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  background: var(--bg);
-  text-decoration: none;
+  margin-bottom: 48px;
 }
 
-.card-visual {
-  min-height: 360px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, #bfe3f7 0%, #5fb6e4 100%);
-}
-
-.card:nth-child(n + 2) .card-visual {
-  background: var(--panel);
-}
-
-.card-text {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding: 8px 4px;
-}
-
-@media (min-width: 640px) {
-  .card {
-    grid-template-columns: 350px 1fr;
-    align-items: stretch;
+/* The page-load reveal also uses transform, so keep the centering on a wrapper-free path */
+@media (prefers-reduced-motion: no-preference) {
+  .case-grid[data-reveal] {
+    animation-name: case-grid-in;
   }
 }
 
-.card-tags {
-  margin: 0;
-  font-size: 14px;
-  color: var(--muted);
+@keyframes case-grid-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    filter: blur(4px);
+  }
 }
 
-.card h3 {
-  margin: 4px 0 0;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-.card-cta {
-  margin-top: auto;
-  font-weight: 500;
-}
-
-/* Pill button */
-.button {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #303832;
-  color: #ffffff;
+.case {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 14px;
+  color: #fff;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
+  background: linear-gradient(135deg, #d9d9d4 0%, #a9aaa4 100%);
+  isolation: isolate;
 }
 
-.button:hover {
-  opacity: 0.85;
+.case:nth-child(2) { background: linear-gradient(135deg, #eceae4 0%, #bdbcb5 100%); }
+.case:nth-child(3) { background: linear-gradient(135deg, #c9c9c5 0%, #8c8d88 100%); }
+.case:nth-child(4) { background: linear-gradient(135deg, #2c3138 0%, #11151a 100%); }
+.case:nth-child(5) { background: linear-gradient(135deg, #2a2a2a 0%, #0c0c0c 100%); }
+
+.case-media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
-/* About */
-.about-name,
-.contact-heading {
-  font-size: 32px;
-  font-weight: 500;
+.case-media video,
+.case-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+.case:hover .case-media video,
+.case:hover .case-media img {
+  transform: scale(1.03);
+}
+
+/* Inset tiles: the video sits smaller in the middle, on a background that matches
+   the video's own, so its edges disappear. Set the color with --case-bg. */
+.case.case--inset {
+  background: var(--case-bg, #000);
+}
+
+.case--inset .case-media {
+  display: grid;
+  place-items: center;
+}
+
+.case--inset .case-media video {
+  width: 62%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Featured tile: spans two columns. The video sits whole in the middle, its edges
+   fade out, and the tile behind it is painted in the video's own sky colors. */
+.case--featured {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+/* Sky colors sampled from the ParlayPlay recording's left and right edges */
+.case.case--featured {
+  background:
+    linear-gradient(to right, rgba(139, 201, 252, 0) 45%, #8bc9fc 60%),
+    linear-gradient(to bottom, #eef9fb, #c3e5fd 50%, #64b6fc);
+}
+
+.case--featured .case-media .case-main {
+  position: relative;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent);
+}
+
+.case--featured::after {
+  inset: 50% 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+}
+
+.case--featured .case-caption {
+  left: 24px;
+  bottom: 22px;
+}
+
+.case-tag {
+  display: inline-block;
   margin: 0 0 8px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
-.about-subtitle {
-  color: var(--muted);
-  margin: 0 0 24px;
+.case--featured .case-title {
+  font-size: 22px;
 }
 
-.section p {
-  max-width: 560px;
+.case--featured .case-desc {
+  font-size: 15px;
 }
 
-.section .button {
-  margin-top: 16px;
+.case-desc strong {
+  font-weight: 500;
+  color: #fff;
 }
 
-.contact-heading {
-  margin-bottom: 24px;
+/* A soft dark fade behind the text so it reads on any video */
+.case::after {
+  content: "";
+  position: absolute;
+  inset: 60% 0 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  pointer-events: none;
 }
 
-.inline-link {
-  color: var(--muted);
+.case-caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.case-title {
+  margin: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.case-desc {
+  margin: 2px 0 0;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 1100px) {
+  .case-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case--featured {
+    aspect-ratio: 2 / 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .case--featured {
+    grid-column: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .case--featured .case-caption {
+    left: 16px;
+    bottom: 14px;
+  }
+
+  .case--featured::after {
+    inset: 35% 0 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
+  }
+
+  .case--featured .case-title {
+    font-size: 18px;
+  }
+
+  .case--featured .case-desc {
+    font-size: 14px;
+  }
+
+  .case-caption {
+    left: 16px;
+    right: 16px;
+    bottom: 14px;
+  }
 }
 
 /* Footer */
@@ -284,18 +625,65 @@ a {
   font-size: 14px;
 }
 
+/* Medium screens: drop the extras in the header and move the tool logos into a row */
+@media (max-width: 760px) {
+  .theme-toggle {
+    display: none;
+  }
+
+  .menu {
+    margin-left: 0;
+  }
+
+  .tool-logos {
+    position: static;
+    flex-direction: row;
+    width: auto;
+    gap: 16px;
+    margin-top: 16px;
+  }
+}
+
 /* Small screens */
 @media (max-width: 520px) {
-  .runner-headline {
-    font-size: 34px;
-  }
-
-  .site-header nav {
-    gap: 14px;
-  }
-
   .hero {
-    padding-top: 80px;
+    padding-top: 72px;
+  }
+
+  .hero .runner-headline {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+/* Load-in: text and pieces fade up one after another (delays set with --d in the HTML).
+   The tool stack stays hidden until runner.js raises it; if the script never runs,
+   it fades in after a few seconds anyway. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    animation: reveal-in 0.7s cubic-bezier(0.2, 0.7, 0.25, 1) backwards;
+    animation-delay: var(--d, 0ms);
+  }
+
+  @media (min-width: 761px) {
+    .tool-logos {
+      opacity: 0;
+      animation: tools-fallback 0.4s 7s forwards;
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+}
+
+@keyframes tools-fallback {
+  to {
+    opacity: 1;
   }
 }
 

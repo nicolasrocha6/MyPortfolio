@@ -7,108 +7,145 @@
   <meta name="description" content="Nicolas Rocha, UX designer. AI-forward product design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=29">
 </head>
 <body>
 
   <div class="page">
 
     <header class="site-header">
-      <a class="logo" href="index.html">Nicolas Rocha</a>
-      <nav>
-        <a href="#work">Work</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="logo" data-reveal style="--d:0ms" href="index.html" aria-label="Nicolas Rocha, home">
+        <img src="images/cbi_chicken.png" alt="" width="29" height="29">
+      </a>
+
+      <div class="header-right">
+        <button data-reveal style="--d:100ms" class="icon-button theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" data-theme-toggle>
+          <img src="images/icons/moon.svg" alt="" width="15" height="15">
+        </button>
+
+        <div class="menu" data-reveal style="--d:260ms">
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu" data-menu-button>
+            Menu <span class="menu-lines" aria-hidden="true"></span>
+          </button>
+          <nav class="menu-panel" id="site-menu" hidden>
+            <a href="#work">Work</a>
+            <a href="blog.html">Blog</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main>
 
       <!-- Hero -->
       <section class="hero">
-        <img class="profile" src="images/profile.png" alt="Portrait of Nicolas Rocha" width="60" height="100">
+        <div class="hero-top">
+          <img data-reveal style="--d:150ms" class="profile" src="images/portrait.png" alt="Portrait of Nicolas Rocha" width="61" height="104">
 
-        <div class="hero-meta">
-          <h1 class="hero-name">Nicolas Rocha</h1>
-          <p class="hero-subtitle">Building @ ParlayPlay</p>
+          <div class="github-activity" data-reveal style="--d:250ms">
+            <a class="github-link" href="https://github.com/nicolasrocha6" target="_blank" rel="noopener">GitHub ↗</a>
+            <div class="github-grid" data-github-grid aria-label="GitHub contributions over the last 16 weeks" role="img"></div>
+            <p class="github-caption">Last 16 weeks</p>
+          </div>
         </div>
 
-        <h2 class="runner-headline" aria-label="AI-Forward Designer" data-runner-headline>
+        <div class="hero-meta" data-reveal style="--d:350ms">
+          <h1 class="hero-name">Nicolas Rocha</h1>
+          <p class="hero-subtitle">Building @ParlayPlay</p>
+        </div>
+
+        <h2 class="runner-headline" aria-label="High Paced Design + Engineering" data-runner-headline>
           <span class="runner-row">
             <span aria-hidden="true">
-              <span class="word"><span data-letter>A</span><span data-letter>I</span><span data-letter>-</span><span data-letter>F</span><span data-letter>o</span><span data-letter>r</span><span data-letter>w</span><span data-letter>a</span><span data-letter>r</span><span data-letter>d</span></span>
-              <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span><span data-letter>e</span><span data-letter>r</span></span>
+              <span class="word"><span data-letter>H</span><span data-letter>i</span><span data-letter>g</span><span data-letter>h</span></span>
+              <span class="word"><span data-letter>P</span><span data-letter>a</span><span data-letter>c</span><span data-letter>e</span><span data-letter>d</span></span>
+              <span class="word"><span data-letter>D</span><span data-letter>e</span><span data-letter>s</span><span data-letter>i</span><span data-letter>g</span><span data-letter>n</span></span>
+              <span class="word"><span data-letter>+</span></span>
+              <span class="word"><span data-letter>E</span><span data-letter>n</span><span data-letter>g</span><span data-letter>i</span><span data-letter>n</span><span data-letter>e</span><span data-letter>e</span><span data-letter>r</span><span data-letter>i</span><span data-letter>n</span><span data-letter>g</span></span>
             </span>
-            <img class="runner-sprite" src="images/runner.svg" alt="" aria-hidden="true" width="42" height="42">
+            <img class="runner-sprite" src="images/icons/claude-code.svg" alt="" aria-hidden="true" width="28" height="17.6">
           </span>
         </h2>
-        <div class="runner-landing-line" aria-hidden="true"></div>
 
-        <ol class="statements">
-          <!-- The Framer copy reads "Face Paced"; change to "Fast-Paced" if that was the intent. -->
-          <li><span class="num">01</span> Empowering Face Paced Environments with Thoughtful Design.</li>
-          <li><span class="num">02</span> Experimenting with AI tools to rethink how products are designed and built.</li>
-          <li><span class="num">03</span> Working across startups and enterprise, with experience in AI, gaming, and consumer products.</li>
-        </ol>
+        <ul class="statements">
+          <li data-reveal style="--d:1100ms">I lead design at ParlayPlay. One feature I designed generates ~$500k in monthly revenue.</li>
+          <li data-reveal style="--d:1200ms">Before that: critical-issue visibility for Amazon leaders, the first designs at a point-of-sale startup, and two grant-funded education products.</li>
+          <li data-reveal style="--d:1300ms">I prototype in code with AI tools, this site included.</li>
+        </ul>
+
+        <nav class="hero-links" aria-label="Contact and profiles" data-reveal style="--d:1400ms">
+          <div class="hero-links-main">
+            <a href="mailto:nicolasrocha6@gmail.com">Email</a>
+            <!-- TODO: Replace # with your LinkedIn URL. -->
+            <a href="#">LinkedIn</a>
+            <!-- TODO: Replace # with your X profile URL. -->
+            <a href="#">X</a>
+            <a href="https://github.com/nicolasrocha6" target="_blank" rel="noopener">GitHub</a>
+          </div>
+          <!-- TODO: Replace # with a link to your resume PDF. -->
+          <a href="#">Resume</a>
+        </nav>
+
+        <ul class="tool-logos" aria-label="Tools I use">
+          <li data-stack-top><img src="images/icons/claude-code.svg" alt="Claude Code" width="28" height="17.6"></li>
+          <li><img src="images/icons/figma.svg" alt="Figma" width="28" height="28"></li>
+          <li><img src="images/icons/github.svg" alt="GitHub" width="28" height="27.3"></li>
+          <li><img src="images/icons/adobe.svg" alt="Adobe" width="28" height="28"></li>
+          <li><img src="images/icons/framer.svg" alt="Framer" width="28" height="28"></li>
+        </ul>
       </section>
 
       <!-- Cases -->
-      <section id="work" class="section">
-        <p class="label">[Cases]</p>
-        <div class="card-list">
-          <a class="card" href="work/parlayplay.html">
-            <div class="card-visual" aria-hidden="true">
-              <!-- TODO: add the ParlayPlay app screenshot as images/parlayplay.png and set it as this element's background. -->
+      <section id="work" class="section" aria-label="Case studies">
+        <div class="case-grid" data-reveal style="--d:1550ms">
+          <a class="case case--featured" href="work/parlayplay.html">
+            <div class="case-media">
+              <video class="case-main" src="videos/parlayplay.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
             </div>
-            <div class="card-text">
-              <p class="card-tags">Full-time · Lead Designer</p>
-              <h3>ParlayPlay</h3>
-              <p class="card-tags">Leadership · Product Design · UX Design</p>
-              <span class="card-cta">View Full Case Study →</span>
+            <div class="case-caption">
+              <p class="case-tag">Current</p>
+              <h3 class="case-title">ParlayPlay</h3>
+              <p class="case-desc">Spearheaded feature design that generates <strong>~$500k monthly revenue.</strong></p>
             </div>
           </a>
-          <a class="card" href="#">
-            <!-- TODO: Amazon case study has no page yet. Add work/amazon.html and update this link. -->
-            <div class="card-visual" aria-hidden="true"></div>
-            <div class="card-text">
-              <p class="card-tags">Amazon</p>
-              <h3>UX Design for Cybersecurity</h3>
-              <p class="card-tags">Wireframing · Prototyping · Hand-off</p>
-              <span class="card-cta">View Case →</span>
+          <a class="case case--inset" style="--case-bg: #000" href="#">
+            <div class="case-media">
+              <video src="videos/amazon.mp4?v=2" muted loop playsinline preload="auto" aria-hidden="true" data-play-times="2"></video>
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">Amazon</h3>
+              <p class="case-desc">Increased escalated critical issue visibility to L10 leaders through thoughtful design</p>
             </div>
           </a>
-          <a class="card" href="work/appco.html">
-            <div class="card-visual" aria-hidden="true"></div>
-            <div class="card-text">
-              <p class="card-tags">Startup · AppCo</p>
-              <h3>POS System</h3>
-              <p class="card-tags">Leadership · Mobile · Desktop</p>
-              <span class="card-cta">View Case →</span>
+          <a class="case" href="#">
+            <div class="case-media">
+              <video src="videos/port.mp4?v=3" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">Port</h3>
+              <p class="case-desc">Simplifying Google Analytics Metrics for Creative Professionals</p>
+            </div>
+          </a>
+          <a class="case" href="work/appco.html">
+            <div class="case-media">
+              <video src="videos/appco.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">AppCo</h3>
+              <p class="case-desc">Founding Designer for a Point-of-Sale Startup</p>
+            </div>
+          </a>
+          <a class="case" href="#">
+            <div class="case-media">
+              <!-- TODO: replace with <video src="videos/oliviahealth.mp4" autoplay muted loop playsinline></video> -->
+            </div>
+            <div class="case-caption">
+              <h3 class="case-title">OliviaHealth</h3>
+              <p class="case-desc">Spearheaded Design Across 2 Grant Funded Educational Products.</p>
             </div>
           </a>
         </div>
-        <a class="button" href="work/index.html">View All Cases</a>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="section">
-        <p class="label">[About Me]</p>
-        <!-- TODO: Add the other About Me photos to images/ and show them here. -->
-        <h2 class="about-name">Nicolas Rocha</h2>
-        <p class="about-subtitle">UX Designer @ Parlay Play</p>
-        <p>What began as an interest in traditional drawing and painting has become a strong passion for UX design. Through design thinking, I aim to make thoughtful solutions that elevate user experience.</p>
-        <p>When I'm not thinking about design, I like to spend time playing soccer, drawing cartoons, cooking, rock climbing, and making fine art.</p>
-        <a class="button" href="blog.html">More About Me</a>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section">
-        <p class="label">[Contact]</p>
-        <h2 class="contact-heading">Yay! We've made it to the finish line. Say 👋 hi!</h2>
-        <a class="button" href="mailto:nicolasrocha6@gmail.com">nicolasrocha6@gmail.com · Let's Talk</a>
-        <p><a class="inline-link" href="#">LinkedIn</a></p>
-        <!-- TODO: Replace # with your LinkedIn URL. -->
       </section>
 
     </main>
@@ -119,6 +156,8 @@
 
   </div>
 
-  <script src="runner.js" defer></script>
+  <script src="runner.js?v=8" defer></script>
+  <script src="header.js?v=8" defer></script>
+  <script src="cases.js?v=6" defer></script>
 </body>
 </html>
